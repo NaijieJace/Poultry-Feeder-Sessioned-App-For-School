@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#f4f4ed">
+    <title>Poultry &amp; Feed | Gram calculator</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="app-icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="PoultryApp.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <header class="topbar">
+            <a class="brand" href="AppIdnex.html" aria-label="Poultry and Feed home"><span class="brand-mark" aria-hidden="true">F</span><span>Poultry <span class="brand-amp">&amp;</span> Feed</span></a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a class="nav-link" href="AppIdnex.html">Overview</a>
+                <a class="nav-link" href="Feed.html">Feed</a>
+                <a class="nav-link is-current" href="Grams.html" aria-current="page">Gram calculator</a>
+            </nav>
+            <div class="topbar-actions">
+                <button class="utility-button" type="button" data-theme-toggle aria-pressed="false">Dark mode</button>
+                <button class="utility-button install-button" type="button" data-install-app hidden>Install app</button>
+            </div>
+        </header>
+        <main class="page-content page-narrow">
+            <section class="page-intro"><p class="eyebrow">PORTION PLANNER</p>
+                <h1>Set your seed portion</h1>
+                <p class="muted-copy">Enter your seed type, flock size, grams per serving, and servings per day.</p></section>
+            <div class="calculator-layout">
+                <form class="calculator-panel" id="feed-calculator">
+                    <div class="form-field"><label for="seed-type">Seed type</label><select id="seed-type" name="seedType">
+                        <option>Mixed seed</option>
+                        <option>Corn</option>
+                        <option>Wheat</option>
+                        <option>Other</option></select>
+                </div>
+                
+                    <div class="form-field"><label for="bird-count">Number of Poultry</label>
+                        <div class="input-with-unit">
+                            <input id="bird-count" name="birdCount" type="number" min="1" max="100000" step="1" value="1" required inputmode="numeric">
+                            <span>Poultry</span>
+                        </div>
+                    </div>
+
+                    <div class="form-field"><label for="portion-grams">Serving of Seeds</label>
+                        <div class="input-with-unit input-emphasis">
+                            <input id="portion-grams" name="portionGrams" type="number" min="0.1" max="1000000" step="0.1" placeholder="e.g. 500" required inputmode="decimal">
+                            <span>Grams</span>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="feedings-per-day">Servings per day</label>
+                        <div class="input-with-unit">
+                            <input id="feedings-per-day" name="feedingsPerDay" type="number" min="1" max="24" step="1" value="2" required inputmode="numeric">
+                            <span>per day</span>
+                        </div>
+                    </div>
+                    <button class="button button-dark submit-button" type="submit">Save feeding plan <span aria-hidden="true">&rarr;</span></button>
+                    <section class="machine-controls" aria-label="Seed dispenser">
+                        <div class="machine-status" role="status" aria-live="polite">
+                            <span class="status-dot" data-machine-indicator aria-hidden="true"></span>
+                            <span data-machine-message>Dispenser not connected</span>
+                        </div>
+                        <button class="button button-outline" id="connect-machine" type="button">Connect machine</button>
+                        <button class="button button-dark dispense-button" id="dispense-seed" type="button" disabled>
+                            Dispense <span data-dispense-amount>0 g</span>
+                        </button>
+                    </section>
+                </form>
+                <aside class="calculation-panel" aria-live="polite" aria-atomic="true">
+                    <p class="eyebrow">YOUR TOTALS</p>
+                    <h2>Portion breakdown</h2>
+                    <div class="calculation-empty" data-calculation-empty>
+                        <span class="calculation-seed" aria-hidden="true">✳</span>
+                        <p>Enter your flock’s portion to see the breakdown.</p>
+                    </div>
+                    <div class="calculation-results" data-calculation-results hidden>
+                        <p class="result-caption">Per serving for the flock</p>
+                        <p class="result-number">
+                            <span data-result-portion>0</span> 
+                            <span>g</span></p>
+                        <dl class="result-list">
+                            <div>
+                                <dt>Seed</dt>
+                                <dd data-result-seed>Mixed seed</dd>
+                            </div>
+                            <div>
+                                <dt>Per bird, per serving</dt>
+                                <dd><span data-result-per-bird>0</span> g</dd>
+                            </div>
+
+                            <div><dt>Total per day</dt>
+                                <dd><span data-result-daily>0</span> g</dd>
+                            </div></dl>
+                        <p class="saved-message" data-saved-message hidden>Plan saved on this device.</p>
+                 </div>
+             </aside>
+         </div>
+            <p class="disclaimer">This calculator totals the amounts you enter.</p>
+        </main>
+         <footer class="site-footer">Research Poultry<span>·</span>Sir smith bangad</footer>
+    </div>
+</body>
+</html>

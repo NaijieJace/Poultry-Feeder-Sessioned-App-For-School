@@ -1,0 +1,25 @@
+{
+  "name": "Poultry & Feed",
+  "short_name": "Poultry Feed",
+  "description": "Poultry feeding plans and dispenser controls.",
+  "start_url": "./AppIdnex.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f4ed",
+  "theme_color": "#f4f4ed",
+  "icons": [
+    {
+      "src": "app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Gram calculator",
+      "url": "./Grams.html"
+    }
+  ]
+}
